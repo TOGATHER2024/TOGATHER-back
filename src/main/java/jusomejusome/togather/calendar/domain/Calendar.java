@@ -1,8 +1,8 @@
 package jusomejusome.togather.calendar.domain;
 
 import jakarta.persistence.*;
+import jusomejusome.togather.profile.domain.Profile;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 

@@ -1,7 +1,8 @@
 package jusomejusome.togather.relation.domain;
 
 import jakarta.persistence.*;
-import jusomejusome.togather.Role.domain.Role;
+import jusomejusome.togather.role.domain.Role;
+import jusomejusome.togather.profile.domain.Profile;
 import lombok.*;
 
 @Getter

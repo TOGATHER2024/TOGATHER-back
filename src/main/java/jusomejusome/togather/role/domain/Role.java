@@ -1,8 +1,11 @@
-package jusomejusome.togather.Role.domain;
+package jusomejusome.togather.role.domain;
 
 import jakarta.persistence.*;
 import jusomejusome.togather.event.domain.SecurityLevel;
-import lombok.*;
+import jusomejusome.togather.profile.domain.Profile;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
@@ -26,4 +29,3 @@ public class Role {
     @Column(name = "security_level", nullable = false)
     private SecurityLevel securityLevel;
 }
-

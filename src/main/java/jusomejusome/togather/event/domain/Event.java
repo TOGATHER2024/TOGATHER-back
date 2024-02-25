@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 import jusomejusome.togather.calendar.domain.Calendar;
 import jusomejusome.togather.category.domain.Category;
+import jusomejusome.togather.profile.domain.Profile;
 import lombok.*;
 
 @Getter
