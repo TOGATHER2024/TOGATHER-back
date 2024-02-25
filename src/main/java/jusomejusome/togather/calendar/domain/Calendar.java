@@ -7,7 +7,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "calendars")
+@Table(name = "calendar")
 @Getter // Lombok 어노테이션으로 모든 필드에 대한 getter를 자동 생성
 //@Setter를 사용할지 여부는 클래스의 불변성(immutable)을 원하는지에 따라 결정됩니다. 만약 객체가 생성된 후에 변경될 필요가 없다면, setter 메소드를 제공하지 않아도 됩니다.
 

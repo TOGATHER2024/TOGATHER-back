@@ -1,6 +1,7 @@
 package jusomejusome.togather.category.domain;
 
 import jakarta.persistence.*;
+import jusomejusome.togather.calendar.domain.Calendar;
 import lombok.*;
 
 import java.time.LocalDateTime;
