@@ -22,7 +22,7 @@ public class Friend extends BaseTimeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "to_profile", nullable = false)
-    private Profile torofile;
+    private Profile toProfile;
 
     //두 profile이 서로 친구를 맺으면 2개의 데이터 생성(from, to 각각 바꿔서)
 }
