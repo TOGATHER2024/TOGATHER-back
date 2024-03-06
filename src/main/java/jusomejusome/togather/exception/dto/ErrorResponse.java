@@ -1,12 +1,14 @@
 package jusomejusome.togather.exception.dto;
 
 import jusomejusome.togather.exception.type.ErrorCode;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class ErrorResponse {
     private int status;
     private String error;
