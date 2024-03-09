@@ -1,6 +1,7 @@
 package jusomejusome.togather.user.controller;
 
 import jakarta.validation.Valid;
+import jusomejusome.togather.config.authentication.AuthUser;
 import jusomejusome.togather.user.domain.User;
 import jusomejusome.togather.user.dto.request.LoginReqDto;
 import jusomejusome.togather.user.dto.request.SignUpReqDto;
@@ -28,5 +29,10 @@ public class UserController {
     public LoginResDto login(@RequestBody LoginReqDto loginReqDto) {
         User user = userService.checkEmailAndPassword(loginReqDto);
         return userService.login(user);
+    }
+
+    @GetMapping("/test")
+    public UserResDto test(@AuthUser User user){
+        return UserResDto.from(user);
     }
 }
