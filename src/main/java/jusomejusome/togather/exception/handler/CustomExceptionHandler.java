@@ -41,7 +41,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         LinkedHashMap<String, Object> body = new LinkedHashMap<>();
-        body.put("status", 400);
+        body.put("status", HttpStatus.BAD_REQUEST.value());
         body.put("error", HttpStatus.BAD_REQUEST);
         body.put("code", "C1000");
         String error = ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();

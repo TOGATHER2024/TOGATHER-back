@@ -2,14 +2,13 @@ package jusomejusome.togather.user.controller;
 
 import jakarta.validation.Valid;
 import jusomejusome.togather.user.domain.User;
+import jusomejusome.togather.user.dto.request.LoginReqDto;
 import jusomejusome.togather.user.dto.request.SignUpReqDto;
+import jusomejusome.togather.user.dto.response.LoginResDto;
 import jusomejusome.togather.user.dto.response.UserResDto;
 import jusomejusome.togather.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -23,5 +22,11 @@ public class UserController {
         Long id = userService.signUp(signUpReqDto);
         User user = userService.findUserById(id);
         return UserResDto.from(user);
+    }
+
+    @PostMapping("/login")
+    public LoginResDto login(@RequestBody LoginReqDto loginReqDto) {
+        User user = userService.checkEmailAndPassword(loginReqDto);
+        return userService.login(user);
     }
 }
