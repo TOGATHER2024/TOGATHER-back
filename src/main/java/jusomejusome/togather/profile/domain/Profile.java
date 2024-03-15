@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jusomejusome.togather.global.BaseTimeEntity;
 import jusomejusome.togather.user.domain.User;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -41,4 +42,28 @@ public class Profile extends BaseTimeEntity {
     @Column(length = 100)
     private String organization;
 
+    @Builder
+    public Profile(User user, Long mainCalendarId, String nickname, String profileImageUrl, String job, String introduce, String website, String organization) {
+        this.user = user;
+        this.mainCalendarId = mainCalendarId;
+        this.nickname = nickname;
+        this.profileImageUrl = profileImageUrl;
+        this.job = job;
+        this.introduce = introduce;
+        this.website = website;
+        this.organization = organization;
+    }
+
+    public boolean isAuthorizedUser(User user) {
+        return this.user.equals(user);
+    }
+
+    public void update(String nickname, String profileImageUrl, String job, String introduce, String website, String organization) {
+        this.nickname = nickname;
+        this.profileImageUrl = profileImageUrl;
+        this.job = job;
+        this.introduce = introduce;
+        this.website = website;
+        this.organization = organization;
+    }
 }
