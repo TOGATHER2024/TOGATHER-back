@@ -5,6 +5,8 @@ import jusomejusome.togather.profile.dto.response.ProfileResDto;
 import jusomejusome.togather.profile.service.ProfileService;
 import jusomejusome.togather.user.domain.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,4 +25,9 @@ public class ProfileController {
         return profileService.findProfileById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProfile(@PathVariable Long id, @AuthUser User user) {
+        profileService.deleteProfile(id, user);
+        return new ResponseEntity<>("프로필이 삭제되었습니다. profileId = " + id, HttpStatus.OK);
+    }
 }

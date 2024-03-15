@@ -54,4 +54,8 @@ public class Profile extends BaseTimeEntity {
         this.organization = organization;
     }
 
+    public boolean isAuthorizedUser(User user) {
+        return this.user.equals(user);
+    }
+
 }

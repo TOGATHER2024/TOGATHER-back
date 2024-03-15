@@ -33,4 +33,13 @@ public class ProfileService {
                 .orElseThrow(() -> new CustomException(ErrorCode.PROFILE_NOT_FOUND_EXCEPTION));
         return ProfileResDto.from(profile);
     }
+
+    public void deleteProfile(Long id, User user) {
+        Profile profile = profileRepository.findById(id)
+                .orElseThrow(() -> new CustomException(ErrorCode.PROFILE_NOT_FOUND_EXCEPTION));
+        if(!profile.isAuthorizedUser(user)) {
+            throw new CustomException(ErrorCode.NO_AUTHORITY_PROFILE_REMOVE);
+        }
+        profileRepository.delete(profile);
+    }
 }

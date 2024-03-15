@@ -22,7 +22,8 @@ public enum ErrorCode {
     INVALID_TOKEN_EXCEPTION(HttpStatus.UNAUTHORIZED, "C1007", "토큰이 유효하지 않습니다."),
 
     //프로필 관련 오류 - C2***
-    PROFILE_NOT_FOUND_EXCEPTION(HttpStatus.NOT_FOUND, "C2000", "해당 프로필 정보를 찾을 수 없습니다.");
+    PROFILE_NOT_FOUND_EXCEPTION(HttpStatus.NOT_FOUND, "C2000", "해당 프로필 정보를 찾을 수 없습니다."),
+    NO_AUTHORITY_PROFILE_REMOVE(HttpStatus.UNAUTHORIZED, "C2001", "본인의 프로필만 삭제할 수 있습니다.");
 
 
     private final HttpStatus httpStatus;
