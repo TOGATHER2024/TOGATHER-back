@@ -20,7 +20,7 @@ public class User extends BaseTimeEntity {
     @Column(length = 100, nullable = false)
     private String email;
 
-    @Column(length = 50) //nullable = false??
+    @Column(length = 50, nullable = false)
     private String phone;
 
     @Column(nullable = false) //길이 지정?
