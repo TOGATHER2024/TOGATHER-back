@@ -17,4 +17,10 @@ public class ProfileController {
     public ProfileResDto createProfile(@PathVariable Long calendarId, @AuthUser User user) {
         return profileService.createProfile(calendarId, user);
     }
+
+    @GetMapping("/{id}")
+    public ProfileResDto getProfileById(@PathVariable Long id) {
+        return profileService.findProfileById(id);
+    }
+
 }
