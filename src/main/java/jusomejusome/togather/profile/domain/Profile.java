@@ -58,4 +58,12 @@ public class Profile extends BaseTimeEntity {
         return this.user.equals(user);
     }
 
+    public void update(String nickname, String profileImageUrl, String job, String introduce, String website, String organization) {
+        this.nickname = nickname;
+        this.profileImageUrl = profileImageUrl;
+        this.job = job;
+        this.introduce = introduce;
+        this.website = website;
+        this.organization = organization;
+    }
 }

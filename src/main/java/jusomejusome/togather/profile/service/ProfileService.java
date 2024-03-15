@@ -3,6 +3,7 @@ package jusomejusome.togather.profile.service;
 import jusomejusome.togather.exception.custom.CustomException;
 import jusomejusome.togather.exception.type.ErrorCode;
 import jusomejusome.togather.profile.domain.Profile;
+import jusomejusome.togather.profile.dto.request.ProfileUpdateReqDto;
 import jusomejusome.togather.profile.dto.response.ProfileResDto;
 import jusomejusome.togather.profile.repository.ProfileRepository;
 import jusomejusome.togather.user.domain.User;
@@ -42,4 +43,16 @@ public class ProfileService {
         }
         profileRepository.delete(profile);
     }
+
+    public ProfileResDto updateProfile(Long id, ProfileUpdateReqDto profileUpdateReqDto, User user) {
+        Profile profile = profileRepository.findById(id)
+                .orElseThrow(() -> new CustomException(ErrorCode.PROFILE_NOT_FOUND_EXCEPTION));
+        if(!profile.isAuthorizedUser(user)) {
+            throw new CustomException(ErrorCode.NO_AUTHORITY_PROFILE_UPDATE);
+        }
+        profile.update(profileUpdateReqDto.getNickname(), profileUpdateReqDto.getProfileImageUrl(), profileUpdateReqDto.getJob(),
+                profileUpdateReqDto.getIntroduce(), profileUpdateReqDto.getWebsite(), profileUpdateReqDto.getOrganization());
+        return ProfileResDto.from(profile);
+    }
+
 }

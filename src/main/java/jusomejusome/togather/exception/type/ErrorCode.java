@@ -23,7 +23,8 @@ public enum ErrorCode {
 
     //프로필 관련 오류 - C2***
     PROFILE_NOT_FOUND_EXCEPTION(HttpStatus.NOT_FOUND, "C2000", "해당 프로필 정보를 찾을 수 없습니다."),
-    NO_AUTHORITY_PROFILE_REMOVE(HttpStatus.UNAUTHORIZED, "C2001", "본인의 프로필만 삭제할 수 있습니다.");
+    NO_AUTHORITY_PROFILE_REMOVE(HttpStatus.UNAUTHORIZED, "C2001", "본인의 프로필만 삭제할 수 있습니다."),
+    NO_AUTHORITY_PROFILE_UPDATE(HttpStatus.UNAUTHORIZED, "C2002", "본인의 프로필만 수정할 수 있습니다.");
 
 
     private final HttpStatus httpStatus;

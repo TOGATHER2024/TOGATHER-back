@@ -1,6 +1,7 @@
 package jusomejusome.togather.profile.controller;
 
 import jusomejusome.togather.config.authentication.AuthUser;
+import jusomejusome.togather.profile.dto.request.ProfileUpdateReqDto;
 import jusomejusome.togather.profile.dto.response.ProfileResDto;
 import jusomejusome.togather.profile.service.ProfileService;
 import jusomejusome.togather.user.domain.User;
@@ -30,4 +31,10 @@ public class ProfileController {
         profileService.deleteProfile(id, user);
         return new ResponseEntity<>("프로필이 삭제되었습니다. profileId = " + id, HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ProfileResDto updateProfile(@PathVariable Long id, @RequestBody ProfileUpdateReqDto profileUpdateReqDto, @AuthUser User user){
+        return profileService.updateProfile(id, profileUpdateReqDto, user);
+    }
+
 }
